@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #no {
+            z-index: 10;
+            position: absolute;
+            transition: all 0.3s;
+        }
+
+        .btn-container {
+            /* background-color: aqua; */
+            padding: 10px;
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Bạn là Nam hay Nữ ?</h1>
+
+        <div id="yes" class="btn-container">
+            <button type="button" id="yes-btn" onclick="showNotification()">Nam</button>
+        </div>
+
+        <div id="no" class="btn-container">
+            <button type="button" id="no-btn">Nữ</button>
+        </div>
+    </main>
+
+    <script>
+        const yes = document.getElementById('yes')
+        const no = document.getElementById('no')
+        
+        function showNotification() {
+            alert('Là nam thì không cần chúc mừng 8/3 nữa ahehehe :V');
+            setTimeout(() => {
+                const newButton = document.createElement('button');
+                newButton.textContent = 'Ấn vào đây nếu bạn thực sự là Nữ';
+                document.body.appendChild(newButton);
+                newButton.addEventListener('click', function(){
+                    alert('Chúc mừng Quốc tế phụ nữ 8-3-2024, phần vui còn phía sau!');
+                    window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=bccA7Qg33OoWZnt-';
+                })
+            }, 5000); // 30 giây
+        }
+
+        no.addEventListener('mouseover', () => {
+            const x = Math.floor(Math.random() * (window.innerWidth - 150))
+            const y = Math.floor(Math.random() * (window.innerHeight - 150))
+
+            no.style.left = `${x}px`
+            no.style.top = `${y}px`
+
+        })
+
+        
+        
+    </script>
+</body>
+</html>
